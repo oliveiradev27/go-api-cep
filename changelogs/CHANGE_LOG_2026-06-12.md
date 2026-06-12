@@ -146,9 +146,18 @@ go test -tags=integration ./test/integration/... -v
 
 ---
 
+## CI (GitHub Actions)
+
+Workflow em `.github/workflows/ci.yml`:
+
+- Dispara em `push` e `pull_request` na branch `main`
+- Usa `actions/setup-go@v5` com `go-version-file: go.mod` (Go 1.23)
+- Executa `go build ./...` e `go test -race ./...`
+- Testes E2E (`test/integration`, tag `integration`) ficam fora do CI — exigem API em execução
+
 ## Próximos passos sugeridos
 
 - [ ] Dockerfile e docker-compose (API + mock)
 - [ ] Middleware de logging e métricas
 - [ ] Cache em memória para CEPs consultados
-- [ ] CI com GitHub Actions (`go test ./...`)
+- [x] CI com GitHub Actions (`go test ./...`)

@@ -19,7 +19,7 @@ flowchart TB
 
 ## Requisitos
 
-- Go 1.22+
+- Go 1.23+
 
 ## Executar a API
 
