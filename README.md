@@ -1,4 +1,4 @@
-#GO API CEP
+# GO API CEP
 
 API REST em Go que consulta endereços brasileiros via [ViaCEP](https://viacep.com.br/), mapeando a resposta em uma struct Go e retornando o mesmo contrato JSON.
 
