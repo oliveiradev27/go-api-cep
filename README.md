@@ -58,9 +58,30 @@ curl -s http://localhost:8080/cep/99999999 | jq
 
 # CEP inválido
 curl -s http://localhost:8080/cep/95010A10 | jq
+
+# Health check
+curl -s http://localhost:8080/health | jq
 ```
 
 ## Contrato da API
+
+### Health check
+
+```
+GET /health
+```
+
+Resposta (200):
+
+```json
+{
+  "status": "ok"
+}
+```
+
+Indica que o processo HTTP está ativo. Não consulta o ViaCEP.
+
+### Consulta de CEP
 
 ### Request
 
@@ -162,5 +183,7 @@ api-cep/
 
 ## Documentação adicional
 
-- Decisões de arquitetura: [`specs/STATE_2026-06-12.md`](specs/STATE_2026-06-12.md)
-- Changelog: [`changelogs/CHANGE_LOG_2026-06-12.md`](changelogs/CHANGE_LOG_2026-06-12.md)
+- Decisões de arquitetura (API CEP): [`specs/STATE_2026-06-12.md`](specs/STATE_2026-06-12.md)
+- Decisões de arquitetura (Health Check): [`specs/STATE_2026-06-12-health-check.md`](specs/STATE_2026-06-12-health-check.md)
+- Changelog (API CEP): [`changelogs/CHANGE_LOG_2026-06-12.md`](changelogs/CHANGE_LOG_2026-06-12.md)
+- Changelog (Health Check): [`changelogs/CHANGE_LOG_2026-06-12-health-check.md`](changelogs/CHANGE_LOG_2026-06-12-health-check.md)

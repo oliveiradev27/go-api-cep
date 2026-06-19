@@ -30,6 +30,8 @@ func NewCEPHandler(service CEPService) *CEPHandler {
 // NewRouter registra as rotas da API e retorna um http.Handler pronto para uso.
 func NewRouter(h *CEPHandler) http.Handler {
 	mux := http.NewServeMux()
+	// Health check: confirma que o processo HTTP está ativo (liveness).
+	mux.HandleFunc("GET /health", HealthCheck)
 	// Rota principal: GET /cep/{cep}
 	mux.HandleFunc("GET /cep/{cep}", h.GetCEP)
 	return mux
